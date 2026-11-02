@@ -51,49 +51,7 @@ def test_form():
     assert "alert-danger" in zip_code.get_attribute("class")
 
     # 5. Проверьте (assert), что остальные поля подсвечены зеленым.
-    first_name = wait.until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, "div[id='first-name']")))
-    assert "alert-success" in first_name.get_attribute("class")
-
-    last_name = wait.until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, "div[id='last-name']")))
-    assert "alert-success" in last_name.get_attribute("class")
-
-    address = wait.until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, "div[id='address']")))
-    assert "alert-success" in address.get_attribute("class")
-
-    city = wait.until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, "div[id='city']")))
-    assert "alert-success" in city.get_attribute("class")
-
-    country = wait.until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, "div[id='country']")))
-    assert "alert-success" in country.get_attribute("class")
-
-    e_mail = wait.until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, "div[id='e-mail']")))
-    assert "alert-success" in e_mail.get_attribute("class")
-
-    phone = wait.until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, "div[id='phone']")))
-    assert "alert-success" in phone.get_attribute("class")
-
-    job_position = wait.until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, "div[id='job-position']")))
-    assert "alert-success" in job_position.get_attribute("class")
-
-    company = wait.until(
-        EC.visibility_of_element_located(
-            (By.CSS_SELECTOR, "div[id='company']")))
-    assert "alert-success" in company.get_attribute("class")
+    success_alerts = driver.find_elements(By.CSS_SELECTOR, ".alert-success")
+    assert len(success_alerts) == 9
 
     driver.quit()
