@@ -11,13 +11,15 @@ def test_calculator():
     driver.get("https://www.saucedemo.com/")
 
     # 2. Авторизуйтесь как пользователь standard_user.
-    driver.add_cookie({
-        "name": "session-username",
-        "value": "standard_user",
-        "domain": "www.saucedemo.com"
-    })
-    driver.refresh()
-    driver.get("https://www.saucedemo.com/inventory.html")
+    user_name = driver.find_element(By.ID, "user-name")
+    user_name.clear()
+    user_name.send_keys("standard_user")
+
+    password = driver.find_element(By.ID, "password")
+    password.clear()
+    password.send_keys("secret_sauce")
+
+    driver.find_element(By.ID, "login-button").click()
 
     # 3. Добавьте в корзину товары:
     # - Sauce Labs Backpack.

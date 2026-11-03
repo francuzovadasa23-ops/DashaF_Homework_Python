@@ -29,6 +29,6 @@ def test_calculator():
     wait.until(EC.text_to_be_present_in_element(
         (By.CSS_SELECTOR, ".screen"), "15"))
     result = driver.find_element(By.CSS_SELECTOR, ".screen")
-    assert "15" in result.text
+    assert result.text.strip() == "15"
 
     driver.quit()
