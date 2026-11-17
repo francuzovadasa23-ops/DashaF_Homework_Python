@@ -1,7 +1,8 @@
+from config import DB_CONNECTION
 from subject_table import SubjectTable
 
 
-db = SubjectTable("postgresql://postgres:postgres123@localhost:5432/QA")
+db = SubjectTable(DB_CONNECTION)
 
 
 def test_get_subjects():
